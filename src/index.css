@@ -87,6 +87,7 @@ font-family: "Lucida Console", "Courier New", monospace;
    border-radius: 7px;
    font-size: 2rem;
  }
+ 
  .finishcontainer{
   background-image: url(./assets/backgroundimg.jpeg);
   background-size: cover;

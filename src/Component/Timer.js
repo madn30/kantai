@@ -2,7 +2,9 @@ import React from 'react'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useHistory } from "react-router-dom"
 export default function Timer({ setTimer, value }) {
+
     const history = useHistory()
+
     return (
         <div className="countdowntimer">
             <div className="numricvalue">

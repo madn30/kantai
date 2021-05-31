@@ -3,6 +3,7 @@ let Remaining = 1
 
 export default function Homepage({ history }) {
 
+
     return (
         <div >
             <div className="displaybg">

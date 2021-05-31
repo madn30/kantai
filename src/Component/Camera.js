@@ -16,6 +16,7 @@ const initialJson = {
     }
 }
 export default function Camera() {
+
     const [timer, setTimer] = useState(0)
     const [valueTheScore, setvalueTheScore] = useState(-1)
     const webcamRef = React.useRef(null);
