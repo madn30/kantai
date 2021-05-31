@@ -14,7 +14,6 @@ export default function Timer({ setTimer, value }) {
                     onComplete={() => {
 
                         return history.push("/finish")
-
                     }}
                     isPlaying
                     duration={60}

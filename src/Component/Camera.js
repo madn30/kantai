@@ -17,15 +17,14 @@ const initialJson = {
 }
 export default function Camera() {
     const [timer, setTimer] = useState(0)
-    const [valuethescore, setValuethescore] = useState(-1)
+    const [valueTheScore, setvalueTheScore] = useState(-1)
     const webcamRef = React.useRef(null);
 
     useEffect(() => {
         const index = initialJson.Reps.TimeOfMove.findIndex(element => element.toString() === timer.toFixed(0) || element.toString() === timer.toFixed(1));
         if (index < 0) return null
         else {
-            console.log(initialJson.Reps.ScoreOfMove[index]);
-            setValuethescore(initialJson.Reps.ScoreOfMove[index])
+            setvalueTheScore(initialJson.Reps.ScoreOfMove[index])
         }
 
     }, [timer.toFixed(0)])
@@ -40,8 +39,9 @@ export default function Camera() {
                 videoConstraints={videoConstraints}
                 forceScreenshotSourceSize="true"
             />
-            <Timer value={valuethescore != -1 && valuethescore} setTimer={setTimer} />
-            <Charts value={valuethescore > -1 && valuethescore} />
+
+            <Charts value={valueTheScore > -1 && valueTheScore} />
+            <Timer value={valueTheScore > -1 && valueTheScore} setTimer={setTimer} />
 
         </div>
 

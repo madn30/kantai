@@ -2,36 +2,30 @@ import React, { useState, useEffect } from 'react'
 import { Bar } from 'react-chartjs-2';
 
 export default function Charts({ value }) {
-    const [arrayvalues, setArrayvalues] = useState([])
+    const [arrayValues, setArrayValues] = useState([])
     const [indexes, setIndexes] = useState([])
 
     useEffect(() => {
-        setArrayvalues(arrayvalues => [...arrayvalues, value]);
+        setArrayValues(arrayValues => [...arrayValues, value]);
     }, [value])
 
     useEffect(() => {
-        setIndexes(indexes => [...indexes, arrayvalues.length])
-        console.log(indexes);
+        setIndexes(indexes => [...indexes, arrayValues.length])
 
-    }, [arrayvalues])
+    }, [arrayValues])
     return (
         <div className="charts">
             <Bar
-                width={100}
-                height={50}
+                width={80}
+                height={10}
                 options={{
+                    responsive: true,
                     scales: {
-
                         xAxes: [{
                             gridLines: {
-                                drawOnChartArea: false
-                            },
-                            ticks: {
-                                display: false
-                            }
-                        }],
-                        yAxes: [{
-                            gridLines: {
+
+                                zeroLineColor: 'white',
+                                color: 'transparent',
                                 drawOnChartArea: false
                             },
                             ticks: {
@@ -40,31 +34,40 @@ export default function Charts({ value }) {
                             scaleLabel: {
 
                                 display: false,
-                                labelString: "Normalized/Indexed Data",
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                zeroLineColor: 'white',
+                                color: 'transparent',
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                display: false
+                            },
+                            scaleLabel: {
+
+                                display: false,
+
                             }
                         }]
-                    }, legend: {
+                    },
+                    legend: {
                         display: false
                     }
-
                 }}
-
                 data={{
                     labels: indexes,
-
-
                     datasets: [
                         {
+                            borderSkipped: false,
 
-                            data: arrayvalues,
-                            backgroundColor: 'rgb(189, 213, 0)',
-
-
+                            borderWidth: 2,
+                            data: arrayValues,
+                            backgroundColor: 'rgba(0, 0, 255, 0.5)',
                         },
                     ],
-
                 }}
-
             />
         </div>
     )
